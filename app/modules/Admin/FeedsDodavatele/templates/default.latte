@@ -1,0 +1,55 @@
+{block #title}{_$drobky['#'][0], $drobky['#'][1]}{/block}
+{block #content}
+
+    <!-- Main body -->
+    <div id="main-body">
+        {control drobecky $drobky}
+
+
+
+
+    {control dodavateleFeedGrid}
+
+
+
+
+    </div>
+
+{/block}
+
+
+{block #head}
+    {include parent}
+
+
+{/block}
+
+{block #scripts}
+    {include parent}
+
+    {snippet modalJs}
+        <script src="{$basePath}/assets/vendor/dselect/dselect.js"></script>
+        <script>
+
+            // Enable dropdown-select on all '.dselect'
+            for (const el of document.querySelectorAll('.dselect')) {
+                dselect(el)
+            }
+
+
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            void(function() {
+                document.querySelectorAll('.needs-validation').forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    })
+                })
+            })()
+        </script>
+    {/snippet}
+{/block}

@@ -1,0 +1,42 @@
+{block #title}{_$drobky['#'][0], $drobky['#'][1]}{/block}
+{block #content}
+
+<!-- Main body -->
+<div id="main-body">
+    {control drobecky $drobky}
+
+    <div class="row g-4 mb-2" n:if="$uziv->isAllowed('Admin:Bank', 'add')">
+        <div class="col-lg-4">
+            <div class="row g-4">
+
+                <div class="col-lg-12 col-md-6 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    {control uploadBankCsvForm}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {control bankaGrid}
+
+</div>
+<!-- /Main body -->
+
+{/block}
+
+{block #head}
+    {include parent}
+{/block}
+
+{block #scripts}
+{include parent}
+
+{/block}
